@@ -1,93 +1,782 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NØX Cyber Company</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050b12">
+
+<title>NØX Cyber | امنیت سایبری</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#05070a;--cyan:#00e5ff;--text:#edf7fa;--muted:#8da1a8}
-body{min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;overflow-x:hidden}
-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-3}
-body:after{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:
-linear-gradient(rgba(0,229,255,.035) 1px,transparent 1px),
-linear-gradient(90deg,rgba(0,229,255,.035) 1px,transparent 1px);
-background-size:42px 42px;
-mask-image:linear-gradient(to bottom,black,transparent 90%)}
-body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 45%,rgba(0,229,255,.09),transparent 32%),linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.72))}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 7vw;border-bottom:1px solid rgba(0,229,255,.12);backdrop-filter:blur(8px)}
-.logo{font-weight:800;letter-spacing:.16em;font-size:15px}
-.logo span{color:var(--cyan)}
-nav a{color:#a9bbc0;text-decoration:none;font-size:11px;letter-spacing:.14em;margin-left:28px}
-nav a:hover{color:var(--cyan)}
-main{min-height:calc(100vh - 76px);display:grid;place-items:center;padding:80px 7vw}
-.hero{text-align:center;max-width:980px}
-.kicker{font:600 11px/1 monospace;letter-spacing:.32em;color:var(--cyan);margin-bottom:26px}
-h1{font-size:clamp(48px,9vw,112px);line-height:.92;letter-spacing:-.055em;font-weight:850}
-h1 span{color:var(--cyan);text-shadow:0 0 30px rgba(0,229,255,.22)}
-.sub{margin:28px auto 0;max-width:700px;color:var(--muted);font:14px/1.8 monospace;letter-spacing:.06em}
-.actions{display:flex;justify-content:center;gap:12px;margin-top:38px;flex-wrap:wrap}
-.btn{padding:14px 22px;border:1px solid rgba(0,229,255,.45);color:var(--text);text-decoration:none;font:700 11px monospace;letter-spacing:.14em;background:rgba(0,229,255,.045);transition:.2s}
-.btn.primary{background:var(--cyan);color:#031014;box-shadow:0 0 28px rgba(0,229,255,.18)}
-.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px rgba(0,229,255,.18)}
-.status{margin:58px auto 0;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;color:#71868d;font:10px monospace;letter-spacing:.13em}
-.dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);margin-right:7px}
-footer{position:fixed;bottom:20px;left:7vw;right:7vw;display:flex;justify-content:space-between;color:#506269;font:9px monospace;letter-spacing:.12em}
-@media(max-width:650px){nav{padding:0 5vw}nav div:last-child{display:none}main{padding:55px 5vw}.sub{font-size:12px}.status{gap:14px}footer{left:5vw;right:5vw}}
+:root{
+ --bg:#03070c;
+ --card:#08121c;
+ --card2:#0c1824;
+ --line:#163247;
+ --blue:#159dff;
+ --blue2:#5bc5ff;
+ --text:#f4f8fc;
+ --muted:#91a1b1;
+ --danger:#ff4f67;
+ --green:#35d39a;
+}
+
+*{
+ box-sizing:border-box;
+ margin:0;
+ padding:0;
+}
+
+html{
+ scroll-behavior:smooth;
+}
+
+body{
+ background:
+ radial-gradient(circle at 80% 0%,#06345b55,transparent 35%),
+ var(--bg);
+ color:var(--text);
+ font-family:Tahoma,Arial,sans-serif;
+ line-height:1.7;
+}
+
+button,input,textarea,select{
+ font:inherit;
+}
+
+button{
+ cursor:pointer;
+}
+
+.container{
+ width:min(1150px,92%);
+ margin:auto;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+ position:sticky;
+ top:0;
+ z-index:50;
+ background:#03070ce8;
+ backdrop-filter:blur(16px);
+ border-bottom:1px solid #163247;
+}
+
+.nav{
+ height:75px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ text-decoration:none;
+ color:white;
+}
+
+.logo{
+ width:48px;
+ height:48px;
+ border-radius:14px;
+ display:grid;
+ place-items:center;
+ font-weight:900;
+ font-size:20px;
+ background:
+ radial-gradient(circle,#159dff,#03213a 65%);
+ border:1px solid #159dff77;
+ box-shadow:0 0 25px #008cff33;
+}
+
+.brand strong{
+ font-size:20px;
+}
+
+.brand small{
+ display:block;
+ color:var(--muted);
+ font-size:10px;
+ letter-spacing:2px;
+}
+
+.navlinks{
+ display:flex;
+ gap:24px;
+ list-style:none;
+}
+
+.navlinks a{
+ color:#c8d3de;
+ text-decoration:none;
+ font-size:14px;
+}
+
+.navlinks a:hover{
+ color:var(--blue2);
+}
+
+.nav-actions{
+ display:flex;
+ gap:8px;
+}
+
+.icon-btn{
+ width:42px;
+ height:42px;
+ border:1px solid var(--line);
+ border-radius:12px;
+ background:#08121c;
+ color:white;
+}
+
+.menu-btn{
+ display:none;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+ min-height:650px;
+ display:grid;
+ grid-template-columns:1.1fr .9fr;
+ align-items:center;
+ gap:30px;
+ position:relative;
+ overflow:hidden;
+}
+
+.hero:before{
+ content:"";
+ position:absolute;
+ width:550px;
+ height:550px;
+ left:-180px;
+ top:-100px;
+ border-radius:50%;
+ background:#008cff22;
+ filter:blur(80px);
+}
+
+.hero-content{
+ position:relative;
+ z-index:2;
+}
+
+.badge{
+ display:inline-flex;
+ padding:8px 14px;
+ border:1px solid #168fd466;
+ border-radius:30px;
+ color:var(--blue2);
+ background:#071b2b;
+ font-size:13px;
+ margin-bottom:20px;
+}
+
+.hero h1{
+ font-size:clamp(42px,7vw,78px);
+ line-height:1.05;
+ margin-bottom:20px;
+}
+
+.gradient{
+ background:linear-gradient(90deg,#fff,#4dbdff);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.hero p{
+ color:#a9b6c3;
+ font-size:18px;
+ max-width:620px;
+}
+
+.hero-buttons{
+ display:flex;
+ gap:12px;
+ margin-top:30px;
+ flex-wrap:wrap;
+}
+
+.btn{
+ padding:14px 22px;
+ border-radius:12px;
+ border:1px solid #247caf;
+ background:#159dff;
+ color:#00111d;
+ font-weight:bold;
+}
+
+.btn.secondary{
+ background:transparent;
+ color:#d9efff;
+ border-color:#28475d;
+}
+
+.btn:hover{
+ transform:translateY(-2px);
+ filter:brightness(1.1);
+}
+
+
+/* cyber visual */
+
+.cyber-art{
+ height:430px;
+ position:relative;
+ display:grid;
+ place-items:center;
+}
+
+.ring{
+ position:absolute;
+ width:320px;
+ height:320px;
+ border-radius:50%;
+ border:1px solid #159dff55;
+ box-shadow:
+ inset 0 0 50px #008cff22,
+ 0 0 50px #008cff22;
+ animation:spin 18s linear infinite;
+}
+
+.ring:before,
+.ring:after{
+ content:"";
+ position:absolute;
+ inset:25px;
+ border:1px solid #159dff33;
+ border-radius:50%;
+}
+
+.ring:after{
+ transform:rotate(60deg);
+}
+
+@keyframes spin{
+ to{transform:rotate(360deg)}
+}
+
+.cyber-logo{
+ position:relative;
+ z-index:2;
+ text-align:center;
+}
+
+.cyber-logo b{
+ font-size:90px;
+ letter-spacing:-10px;
+ text-shadow:
+ 0 0 10px #fff,
+ 0 0 30px #159dff,
+ 0 0 60px #008cff;
+}
+
+.cyber-logo span{
+ display:block;
+ letter-spacing:7px;
+ color:#55bdff;
+ font-size:13px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+section{
+ padding:85px 0;
+}
+
+.section-head{
+ text-align:center;
+ margin-bottom:40px;
+}
+
+.section-head h2{
+ font-size:36px;
+ margin-bottom:8px;
+}
+
+.section-head p{
+ color:var(--muted);
+}
+
+
+/* ================= CARDS ================= */
+
+.grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.card{
+ background:
+ linear-gradient(145deg,#0a1722,#050b11);
+ border:1px solid var(--line);
+ border-radius:18px;
+ padding:25px;
+ transition:.25s;
+}
+
+.card:hover{
+ transform:translateY(-5px);
+ border-color:#159dff77;
+ box-shadow:0 15px 45px #0008;
+}
+
+.card-icon{
+ width:52px;
+ height:52px;
+ display:grid;
+ place-items:center;
+ border-radius:14px;
+ background:#0a2940;
+ color:#58bfff;
+ font-size:25px;
+ margin-bottom:18px;
+}
+
+.card h3{
+ margin-bottom:8px;
+}
+
+.card p{
+ color:var(--muted);
+ font-size:14px;
+}
+
+
+/* ================= REQUEST ================= */
+
+.request-wrap{
+ display:grid;
+ grid-template-columns:.8fr 1.2fr;
+ gap:25px;
+ align-items:start;
+}
+
+.panel{
+ background:#08121c;
+ border:1px solid var(--line);
+ border-radius:20px;
+ padding:28px;
+}
+
+.panel h3{
+ margin-bottom:10px;
+}
+
+.panel p{
+ color:var(--muted);
+}
+
+.form{
+ display:grid;
+ gap:14px;
+ margin-top:20px;
+}
+
+label{
+ font-size:13px;
+ color:#b8c6d3;
+}
+
+input,
+textarea,
+select{
+ width:100%;
+ margin-top:6px;
+ padding:13px 14px;
+ border-radius:11px;
+ border:1px solid #1c3c51;
+ background:#03080d;
+ color:white;
+ outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+ border-color:var(--blue);
+ box-shadow:0 0 0 3px #159dff18;
+}
+
+textarea{
+ min-height:130px;
+ resize:vertical;
+}
+
+.consent{
+ display:flex;
+ gap:10px;
+ align-items:flex-start;
+ color:#9caab8;
+ font-size:13px;
+}
+
+.consent input{
+ width:auto;
+ margin-top:5px;
+}
+
+
+/* ================= STATUS ================= */
+
+.ticket{
+ display:none;
+ margin-top:20px;
+ padding:20px;
+ border-radius:14px;
+ border:1px solid #159dff55;
+ background:#061827;
+}
+
+.ticket.show{
+ display:block;
+}
+
+.ticket-number{
+ font-size:24px;
+ color:#55bdff;
+ font-weight:bold;
+}
+
+
+/* ================= STEPS ================= */
+
+.steps{
+ display:grid;
+ gap:15px;
+}
+
+.step{
+ display:flex;
+ gap:15px;
+ align-items:flex-start;
+}
+
+.step-number{
+ flex:none;
+ width:40px;
+ height:40px;
+ display:grid;
+ place-items:center;
+ border-radius:50%;
+ background:#0a2a42;
+ color:#58bfff;
+ font-weight:bold;
+}
+
+
+/* ================= FAQ ================= */
+
+.faq{
+ display:grid;
+ gap:10px;
+ max-width:850px;
+ margin:auto;
+}
+
+details{
+ background:#08121c;
+ border:1px solid var(--line);
+ border-radius:13px;
+ padding:16px 18px;
+}
+
+summary{
+ cursor:pointer;
+ font-weight:bold;
+}
+
+details p{
+ color:var(--muted);
+ margin-top:10px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box{
+ max-width:650px;
+ margin:0 auto 30px;
+ position:relative;
+}
+
+.search-box input{
+ padding-right:45px;
+}
+
+.search-icon{
+ position:absolute;
+ right:15px;
+ top:42px;
+ color:#63bdff;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+ border-top:1px solid var(--line);
+ padding:45px 0 25px;
+ background:#02060a;
+}
+
+.footer-grid{
+ display:grid;
+ grid-template-columns:2fr 1fr 1fr 1fr;
+ gap:30px;
+}
+
+footer h3{
+ margin-bottom:12px;
+}
+
+footer p,
+footer a{
+ color:#83919f;
+ font-size:14px;
+}
+
+footer a{
+ display:block;
+ text-decoration:none;
+ margin:7px 0;
+}
+
+footer a:hover{
+ color:#4dbdff;
+}
+
+.copyright{
+ border-top:1px solid #10202c;
+ margin-top:30px;
+ padding-top:20px;
+ color:#607080;
+ text-align:center;
+ font-size:12px;
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+ position:fixed;
+ inset:0;
+ display:none;
+ place-items:center;
+ padding:20px;
+ background:#000c;
+ z-index:100;
+}
+
+.modal.show{
+ display:grid;
+}
+
+.modal-box{
+ width:min(500px,100%);
+ background:#09141e;
+ border:1px solid #1d6b95;
+ border-radius:18px;
+ padding:25px;
+ box-shadow:0 20px 70px #000;
+}
+
+.close{
+ float:left;
+ border:0;
+ background:none;
+ color:white;
+ font-size:28px;
+}
+
+
+/* ================= TOAST ================= */
+
+.toast{
+ position:fixed;
+ bottom:25px;
+ left:50%;
+ transform:translate(-50%,30px);
+ opacity:0;
+ background:#0b1c29;
+ border:1px solid #159dff;
+ padding:12px 20px;
+ border-radius:12px;
+ z-index:200;
+ transition:.25s;
+}
+
+.toast.show{
+ opacity:1;
+ transform:translate(-50%,0);
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+ .hero{
+  grid-template-columns:1fr;
+  padding:70px 0;
+  text-align:center;
+ }
+
+ .hero p{
+  margin:auto;
+ }
+
+ .hero-buttons{
+  justify-content:center;
+ }
+
+ .cyber-art{
+  height:300px;
+ }
+
+ .grid{
+  grid-template-columns:1fr;
+ }
+
+ .request-wrap{
+  grid-template-columns:1fr;
+ }
+
+ .footer-grid{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .navlinks{
+  display:none;
+ }
+
+ .menu-btn{
+  display:block;
+ }
+
+}
+
+@media(max-width:500px){
+
+ .hero h1{
+  font-size:43px;
+ }
+
+ section{
+  padding:60px 0;
+ }
+
+ .footer-grid{
+  grid-template-columns:1fr;
+ }
+
+ .ring{
+  width:250px;
+  height:250px;
+ }
+
+ .cyber-logo b{
+  font-size:70px;
+ }
+
+}
 </style>
 </head>
+
+
 <body>
-<canvas id="matrix"></canvas>
+
+
+<!-- ================= NAV ================= -->
+
+<header>
+
+<div class="container nav">
+
+<a href="#home" class="brand">
+
+<div class="logo">NØX</div>
+
+<div>
+<strong>NØX Cyber</strong>
+<small>CYBER SECURITY</small>
+</div>
+
+</a>
+
 
 <nav>
-  <div class="logo">NØX <span>//</span> CYBER COMPANY</div>
-  <div>
-    <a href="#">INTELLIGENCE</a><a href="#">RESEARCH</a><a href="#">CYBEROPS</a>
-  </div>
+<ul class="navlinks">
+
+<li><a href="#home">خانه</a></li>
+<li><a href="#services">خدمات</a></li>
+<li><a href="#request">درخواست کمک</a></li>
+<li><a href="#learn">آموزش</a></li>
+<li><a href="#faq">سؤالات متداول</a></li>
+
+</ul>
 </nav>
 
+
+<div class="nav-actions">
+
+<button
+class="icon-btn"
+onclick="changeLanguage()">
+🌐
+</button>
+
+<button
+class="icon-btn"
+onclick="openSearch()">
+⌕
+</button>
+
+<button
+class="icon-btn menu-btn"
+onclick="toast('منوی موبایل')">
+☰
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
 <main>
-<section class="hero">
-  <div class="kicker">// CYBER INTELLIGENCE DIVISION //</div>
-  <h1>KNOW THE <span>THREAT.</span><br>CONTROL THE RISK.</h1>
-  <p class="sub">OFFENSIVE SECURITY × DEFENSIVE INTELLIGENCE<br>RESEARCH • ANALYSIS • ADVERSARIAL THINKING</p>
-  <div class="actions">
-    <a class="btn primary" href="#">EXPLORE NØX</a>
-    <a class="btn" href="#">VIEW INTELLIGENCE</a>
-  </div>
-  <div class="status">
-    <span><i class="dot"></i>CORE ONLINE</span>
-    <span><i class="dot"></i>DEFENSE ACTIVE</span>
-    <span><i class="dot"></i>LAB READY</span>
-  </div>
-</section>
-</main>
 
-<footer><span>NØX//VECTOR</span><span>SYSTEM STATUS: NOMINAL</span></footer>
+<section id="home">
 
-<script>
-const c=document.getElementById('matrix'),x=c.getContext('2d');
-const chars='01ABCDEFGHIJKLMNOPQRSTUVWXYZ{}[]<>/\\\\:;._-+=#$%';
-let font=13, drops=[];
-function resize(){
- c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;
- c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';
- x.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);
- drops=Array(Math.ceil(innerWidth/font)).fill(0).map(()=>Math.random()*-40);
-}
-function draw(){
- x.fillStyle='rgba(5,7,10,.075)';x.fillRect(0,0,innerWidth,innerHeight);
- x.font=font+'px monospace';
- for(let i=0;i<drops.length;i++){
-   const ch=chars[Math.floor(Math.random()*chars.length)];
-   x.fillStyle=Math.random()<.055?'rgba(120,245,255,.8)':'rgba(0,180,210,.18)';
-   x.fillText(ch,i*font,drops[i]*font);
-   if(drops[i]*font>innerHeight && Math.random()>.975)drops[i]=0;
-   drops[i]+=.42+Math.random()*.55;
- }
- requestAnimationFrame(draw);
-}
-addEventListener('resize',resize);resize();draw();
-</script>
-</body>
-</html>
+<div class="container hero">
+
+<div class="hero-content">
+
+<div class="badge">
+● NØX Cyber Security
+</div>
+
+<h1>
+امنیت شما،
+<br>
+<span class="gradient">
+اولویت ماست.
+</span>
+</h1>
+
+<p>
+NØX Cyber با هدف افزایش امنیت،
+آگاهی و محافظت در فضای دیجیتال
